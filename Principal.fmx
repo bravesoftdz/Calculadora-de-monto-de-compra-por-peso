@@ -1,0 +1,179 @@
+object FPrinc: TFPrinc
+  Left = 0
+  Top = 0
+  BorderStyle = Single
+  Caption = 'Calculadora de Total (Bs) de pesos'
+  ClientHeight = 455
+  ClientWidth = 320
+  Fill.Color = claPalegreen
+  Fill.Kind = Solid
+  Quality = HighPerformance
+  StyleLookup = 'panelstyle'
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Orientations = [Portrait, InvertedPortrait]
+  FormFactor.Devices = []
+  FullScreen = True
+  ShowFullScreenIcon = True
+  OnShow = FormShow
+  DesignerMobile = True
+  DesignerWidth = 320
+  DesignerHeight = 455
+  DesignerDeviceName = '3.2 QVGA Android Phone'
+  DesignerOrientation = 0
+  DesignerOSVersion = ''
+  object NBPrecio: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Cursor = crIBeam
+    Max = 100000000.000000000000000000
+    ValueType = Float
+    TextSettings.HorzAlign = Center
+    Position.X = 6.000000000000000000
+    Position.Y = 24.000000000000000000
+    Width = 153.000000000000000000
+    Height = 32.000000000000000000
+    HorzIncrement = 0.000000000000000000
+    VertIncrement = 5.000000000000000000
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    OnChange = NBPesoTyping
+    OnTyping = NBPesoTyping
+    OnKeyDown = NBPrecioKeyDown
+  end
+  object Label1: TLabel
+    AutoSize = True
+    Height = 22.000000000000000000
+    Position.X = 99.000000000000000000
+    Position.Y = 4.000000000000000000
+    TextSettings.WordWrap = False
+    Text = 'Precio (Bs/Kg)'
+    Width = 118.000000000000000000
+  end
+  object Label2: TLabel
+    AutoSize = True
+    Height = 22.000000000000000000
+    Position.X = 120.000000000000000000
+    Position.Y = 92.000000000000000000
+    TextSettings.WordWrap = False
+    Text = 'Peso (Kg)'
+    Width = 79.000000000000000000
+  end
+  object NBPeso: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Cursor = crIBeam
+    Max = 100000000.000000000000000000
+    ValueType = Float
+    TextSettings.HorzAlign = Center
+    Position.X = 6.000000000000000000
+    Position.Y = 112.000000000000000000
+    Width = 153.000000000000000000
+    Height = 32.000000000000000000
+    VertIncrement = 5.000000000000000000
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    OnChange = NBPesoTyping
+    OnTyping = NBPesoTyping
+    OnKeyDown = NBPesoKeyDown
+  end
+  object BAgregar: TButton
+    Height = 34.000000000000000000
+    Position.X = 112.000000000000000000
+    Position.Y = 184.000000000000000000
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    StyleLookup = 'stepperbuttonright'
+    TabOrder = 2
+    TabStop = False
+    Text = 'Agregar'
+    Width = 47.000000000000000000
+    OnClick = BAgregarClick
+  end
+  object Label3: TLabel
+    AutoSize = True
+    Height = 22.000000000000000000
+    Position.X = 94.000000000000000000
+    Position.Y = 364.000000000000000000
+    TextSettings.WordWrap = False
+    Text = 'Monto total (Bs)'
+    Width = 132.000000000000000000
+  end
+  object NBMonto: TNumberBox
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    TabStop = False
+    Cursor = crIBeam
+    Max = 100000000.000000000000000000
+    ValueType = Float
+    CanFocus = False
+    ReadOnly = True
+    TextSettings.FontColor = claBlue
+    TextSettings.HorzAlign = Center
+    Position.X = 6.000000000000000000
+    Position.Y = 384.000000000000000000
+    Width = 153.000000000000000000
+    Height = 32.000000000000000000
+    HorzIncrement = 0.000000000000000000
+    VertIncrement = 5.000000000000000000
+    Locked = True
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    StyledSettings = [Family, Size, Style]
+  end
+  object BLimpiar: TButton
+    Height = 48.000000000000000000
+    Position.X = 24.000000000000000000
+    Position.Y = 192.000000000000000000
+    StyleLookup = 'refreshtoolbutton'
+    TabOrder = 3
+    TabStop = False
+    Text = 'BLimpiar'
+    Width = 48.000000000000000000
+    OnClick = BLimpiarClick
+  end
+  object Grid: TGrid
+    Height = 103.000000000000000000
+    Position.Y = 256.000000000000000000
+    TabOrder = 9
+    Width = 320.000000000000000000
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick]
+    ReadOnly = True
+    RowCount = 0
+    RowHeight = 22.000000000000000000
+    TextSettings.HorzAlign = Trailing
+    OnGetValue = GridGetValue
+    object CPrecio: TColumn
+      Header = 'Precio (Bs/kg)'
+      Height = 0.000000000000000000
+      ReadOnly = True
+      TabOrder = 0
+      Width = 108.000000000000000000
+    end
+    object CPeso: TColumn
+      Header = 'Peso (kg)'
+      Height = 0.000000000000000000
+      Position.X = 108.000000000000000000
+      ReadOnly = True
+      TabOrder = 1
+      Width = 90.000000000000000000
+    end
+    object CMonto: TColumn
+      Header = 'Monto (Bs)'
+      Height = 0.000000000000000000
+      Position.X = 198.000000000000000000
+      ReadOnly = True
+      TabOrder = 2
+      Width = 120.000000000000000000
+    end
+  end
+  object SpeedButton1: TSpeedButton
+    Height = 48.000000000000000000
+    Position.X = 248.000000000000000000
+    Position.Y = 192.000000000000000000
+    StyleLookup = 'infotoolbutton'
+    Text = 'SpeedButton1'
+    Width = 48.000000000000000000
+    OnClick = SpeedButton1Click
+  end
+end
